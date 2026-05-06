@@ -1,12 +1,11 @@
 import models
 from database import SessionLocal
-from taskiq_aio_pika import AioPikaBroker
-from taskiq_redis import RedisAsyncResultBackend
+from taskiq_redis import RedisAsyncResultBackend, ListQueueBroker
 from taskiq import TaskiqScheduler
 from taskiq.schedule_sources import LabelScheduleSource
 
 # Here's the broker that is going to execute tasks
-broker = AioPikaBroker('amqp://guest:guest@localhost:5672').with_result_backend(
+broker = ListQueueBroker("redis://localhost:6379/0").with_result_backend(
     RedisAsyncResultBackend("redis://localhost"))
 
 
