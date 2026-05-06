@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+
+# Ignore environment variables file (in case you add one later)
+.env
+venv/
+env/
+
+desktop.ini 
+.vscode/
+
+*.docx
+uvicorn
+
+*.pkl
