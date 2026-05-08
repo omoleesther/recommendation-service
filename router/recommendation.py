@@ -3,9 +3,13 @@ from ml_models import RecommendationModel
 
 router = APIRouter()
 
-recommend = RecommendationModel()
-recommend.train()
-recommend.save()
+try:
+    recommend = RecommendationModel()
+    recommend.train()
+    recommend.save()
+except Exception as e:
+    print(f"Model training failed: {e}")
+    recommend = None
 
 
 @router.get("/product/{id}/recommendation")
