@@ -79,12 +79,14 @@ class RecommendationModel:
 
     def save(self):
         # Serialization is the process of converting an object’s state into a format that can be stored or transmitted and later reconstructed.
-        joblib.dump(self.knn, "trained_models/recommendation.pkl")
+        # joblib.dump(self.knn, "trained_models/recommendation.pkl")
+        pass
 
     def load(self):
         # load the model from file
-        self.knn_from_joblib = joblib.load(
-            'trained_models/recommendation.pkl')
+       # self.knn_from_joblib = joblib.load(
+        # 'trained_models/recommendation.pkl')
+        pass
 
     def recommend(self, product_id):
         product_row = self.df.loc[self.df['id'] == product_id]
